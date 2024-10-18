@@ -1,2 +1,0 @@
-# Spitz
-Fetch Dog Information
