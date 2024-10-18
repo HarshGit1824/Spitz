@@ -30,7 +30,6 @@ async function getDogImages(breed) {
         console.log(err);
     }
 }
-getDogImages("huskey");
 
 
 //MARK: Render
@@ -48,10 +47,21 @@ renderOptions();
 
 
 async function renderCarousel(breed) {
+    carouselContainerEl.innerHTML = ''
     const images = await getDogImages(breed);
-    console.log(images);
+    
+    for (let i = 0; i < images.length; i++){
+        const div  = document.createElement("div");
+        div.classList.add("carousel-item", i===0 && "active");
+        div.innerHTML = `<img src="${images[i]}" 
+          class="d-block w-100 rounded-3 "
+          alt="${breed}">`;
+        carouselContainerEl.appendChild(div);
+    }
 }
 
 selectEl.addEventListener("change", function (e) {
-    console.log(e.target.value);
+    renderCarousel(e.target.value);
 });
+
+renderCarousel("affenpinscher");
