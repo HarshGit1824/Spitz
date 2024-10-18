@@ -1,4 +1,3 @@
-
 const selectEl = document.querySelector("select");
 const carouselContainerEl = document.querySelector(".carousel-inner");
 
@@ -44,7 +43,6 @@ async function renderOptions(){
     }
 }
 renderOptions();
-
 
 async function renderCarousel(breed) {
     carouselContainerEl.innerHTML = ''
