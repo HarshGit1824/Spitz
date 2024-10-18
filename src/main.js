@@ -20,7 +20,6 @@ async function getDogsList() {
 }
 getDogsList();
 
-
 // Gets list of 10 images on breed
 async function getDogImages(breed) {
     try {
@@ -39,7 +38,6 @@ async function renderOptions(){
     const breedList = await getDogsList();
 
     for(breed of breedList){
-
         const option = document.createElement("option");
         option.textContent = breed[0].toUpperCase() + breed.slice(1).toLowerCase();
         option.value = breed;
@@ -48,8 +46,10 @@ async function renderOptions(){
 }
 renderOptions();
 
-function renderCarousel() {
 
+async function renderCarousel(breed) {
+    const images = await getDogImages(breed);
+    console.log(images);
 }
 
 selectEl.addEventListener("change", function (e) {
